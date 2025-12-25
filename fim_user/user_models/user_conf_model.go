@@ -1,4 +1,4 @@
-package models
+package user_models
 
 import (
 	"fim_server/common/models"

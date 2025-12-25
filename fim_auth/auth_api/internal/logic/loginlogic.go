@@ -5,6 +5,7 @@ package logic
 
 import (
 	"context"
+	"errors"
 
 	"fim_server/fim_auth/auth_api/internal/svc"
 	"fim_server/fim_auth/auth_api/internal/types"
@@ -31,5 +32,5 @@ func (l *LoginLogic) Login(req *types.LoginRequest) (resp *types.LoginResponse, 
 
 	return &types.LoginResponse{
 		Token: "xxx",
-	}, nil
+	}, errors.New("登录失败")
 }

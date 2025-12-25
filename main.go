@@ -18,11 +18,8 @@ func main() {
 	flag.BoolVar(&opts.DB, "db", false, "db")
 	flag.Parse()
 
-	// 初始化配置文件
-	core.InitConfig("settings.yaml")
-
 	if opts.DB {
-		db := core.InitMysql()
+		db := core.InitGorm("")
 		err := db.AutoMigrate(
 			&user_models.UserModel{},
 			&user_models.FriendModel{},

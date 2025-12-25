@@ -7,8 +7,6 @@ import (
 	"context"
 
 	"fim_server/fim_auth/auth_api/internal/svc"
-	"fim_server/fim_auth/auth_api/internal/types"
-
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
@@ -26,7 +24,7 @@ func NewAuthenticationLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Au
 	}
 }
 
-func (l *AuthenticationLogic) Authentication() (resp *types.Response, err error) {
+func (l *AuthenticationLogic) Authentication() (resp string, err error) {
 	// todo: add your logic here and delete this line
 
 	return

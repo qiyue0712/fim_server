@@ -4,6 +4,7 @@
 package handler
 
 import (
+	"fim_server/common/response"
 	"net/http"
 
 	"fim_server/fim_auth/auth_api/internal/logic"
@@ -22,10 +23,11 @@ func loginHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 
 		l := logic.NewLoginLogic(r.Context(), svcCtx)
 		resp, err := l.Login(&req)
-		if err != nil {
-			httpx.ErrorCtx(r.Context(), w, err)
-		} else {
-			httpx.OkJsonCtx(r.Context(), w, resp)
-		}
+		//if err != nil {
+		//	httpx.ErrorCtx(r.Context(), w, err)
+		//} else {
+		//	httpx.OkJsonCtx(r.Context(), w, resp)
+		//}
+		response.Response(r, w, resp, err)
 	}
 }

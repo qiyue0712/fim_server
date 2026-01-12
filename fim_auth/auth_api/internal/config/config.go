@@ -12,6 +12,6 @@ type Config struct {
 	}
 	Auth struct {
 		AccessSecret string
-		AccessExpire int64
+		AccessExpire int
 	}
 }

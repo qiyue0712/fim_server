@@ -6,19 +6,23 @@ package svc
 import (
 	"fim_server/core"
 	"fim_server/fim_auth/auth_api/internal/config"
+	"github.com/go-redis/redis"
 	"gorm.io/gorm"
 )
 
 type ServiceContext struct {
 	Config config.Config
 	DB     *gorm.DB
+	Redis  *redis.Client
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
 	mysqlDb := core.InitGorm(c.Mysql.DataSource)
+	client := core.InitRedis(c.Redis.Addr, c.Redis.Pwd, c.Redis.DB)
 	//mysqlDb.AutoMigrate(&auth_models.UserModel{})
 	return &ServiceContext{
 		Config: c,
 		DB:     mysqlDb,
+		Redis:  client,
 	}
 }

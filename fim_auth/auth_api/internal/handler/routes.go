@@ -30,13 +30,13 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				Handler: logoutHandler(serverCtx),
 			},
 			{
-				Method:  http.MethodPost,
+				Method:  http.MethodGet,
 				Path:    "/api/auth/open_login",
-				Handler: open_loginHandler(serverCtx),
+				Handler: open_login_infoHandler(serverCtx),
 			},
 			{
 				Method:  http.MethodPost,
-				Path:    "/api/auth/open_login_info",
+				Path:    "/api/auth/open_login",
 				Handler: open_login_infoHandler(serverCtx),
 			},
 		},
